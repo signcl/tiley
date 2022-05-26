@@ -1,16 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="<%= imageSize %>" height="<%= imageSize %>">
-  <rect x="0" y="0" width="<%= imageSize %>" height="<%= imageSize %>" style="fill:<%= color %>"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="<%= imageSize %>" height="<%= imageSize %>">
   <defs>
     <style>
-      @font-face {
-        font-family: 'Open Sans';
-        font-style: normal;
-        font-weight: 400;
-        src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/opensans/v13/cJZKeOuBrn4kERxqtaUH3ZBw1xU1rKptJj_0jans920.woff2) format('woff2');
+      :root {
+        --tiley-text-color: #fff;
+        --tiley-bg-color: <%= color %>;
+        --tiley-font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      }
+
+      text {
+        alignment-baseline: central;
+        text-anchor: middle;
+        fill: var(--tiley-text-color);
+        font-weight: bold;
+        font-family: var(--tiley-font-family);
+        font-size: <%= fontSize %>px;
+        user-select: none;
+      }
+
+      rect {
+        fill: var(--tiley-bg-color);
       }
     </style>
   </defs>
-  <text x="<%= imageSize * 0.5 %>" y="<%= imageSize * 0.5 %>" style="alignment-baseline: central; text-anchor: middle; fill: #fff; font-weight: bold; font-family: Open Sans, sans-serif; font-size: <%= fontSize %>px;">
-    <%= text %>
-  </text>
+  <rect width="<%= imageSize %>" height="<%= imageSize %>"/>
+  <text x="<%= imageSize * 0.5 %>" y="<%= imageSize * 0.5 %>"><%= text %></text>
 </svg>
