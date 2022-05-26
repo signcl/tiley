@@ -32,7 +32,7 @@ app.use(morgan('combined'));
 app.get('/avatar/:id(\\w+)/:initials.:format(png|jpg)', (req, res, next) => {
   const color = getColor(req);
   const text = initials(req.params.initials);
-  const font = 'src/fonts/opensans-semibold.ttf';
+  const font = 'src/fonts/PingFangSC-Semibold.ttf';
   const { format } = req.params;
   const imageSize = parseInt(req.query.s, 10) || 100;
 
