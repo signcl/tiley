@@ -2,9 +2,15 @@
   <defs>
     <style>
       :root {
-        --tiley-text-color: #fff;
+        --tiley-text-color: var(--bg-color, #fff);
         --tiley-bg-color: <%= color %>;
         --tiley-font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      }
+
+      @media (prefers-color-scheme:dark) {
+        :root {
+          --tiley-text-color: var(--text-color, #000);
+        }
       }
 
       text {
