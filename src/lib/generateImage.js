@@ -7,7 +7,7 @@ function generateImage(imageSize, color, font, text, format) {
   return imageMagick(imageSize, imageSize, color)
     .fill('#fff')
     .font(font, generateFontSize(imageSize))
-    .drawText(-1, -3, text, 'Center')
+    .drawText(0, 0, text, 'Center')
     .setFormat(format);
 }
 
