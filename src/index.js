@@ -34,7 +34,7 @@ app.get('/avatar/:id(\\w+)/:initials.:format(png|jpg)', (req, res, next) => {
   const text = initials(req.params.initials);
   const font = 'src/fonts/PingFangSC-Semibold.ttf';
   const { format } = req.params;
-  const imageSize = parseInt(req.query.s, 10) || 100;
+  const imageSize = Math.min(Math.max(parseInt(req.query.s, 10), 1), 1024) || 256;
 
   res.set('Content-Type', `image/${format}`);
   generateImage(imageSize, color, font, text, format).stream((err, stdout) => {
@@ -46,7 +46,7 @@ app.get('/avatar/:id(\\w+)/:initials.:format(png|jpg)', (req, res, next) => {
 app.get('/avatar/:id(\\w+)/:initials.:format(svg)?', (req, res) => {
   const color = getColor(req);
   const text = initials(req.params.initials);
-  const imageSize = parseInt(req.query.s, 10) || 100;
+  const imageSize = parseInt(req.query.s, 10) || 256;
   const fontSize = generateFontSize(imageSize);
 
   res.setHeader('Content-Type', 'image/svg+xml');
