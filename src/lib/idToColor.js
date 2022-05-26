@@ -1,6 +1,6 @@
+const argv = require('minimist')(process.argv.slice(2));
 const crypto = require('crypto');
 const colors = require('./colors');
-const argv = require('minimist')(process.argv.slice(2));
 
 const size = parseInt(argv.size || 26, 10);
 const s = parseFloat(argv.s || 0.8);

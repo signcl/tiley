@@ -1,8 +1,8 @@
 var self = {
   hsv2rgb(obj) {
-    var h = obj.h;
-    var s = obj.s;
-    var v = obj.v;
+    var { h } = obj;
+    var { s } = obj;
+    var { v } = obj;
 
     var r;
     var g;

@@ -1,3 +1,4 @@
+const argv = require('minimist')(process.argv.slice(2));
 const express = require('express');
 const morgan = require('morgan');
 const initials = require('./lib/initials');
@@ -6,7 +7,6 @@ const generateFontSize = require('./lib/generateFontSize');
 const idToColor = require('./lib/idToColor');
 const { validateHex } = require('./lib/colors');
 const errorHandlingMiddleware = require('./middlewares/errorHandling');
-const argv = require('minimist')(process.argv.slice(2));
 
 const port = process.env.PORT || parseInt(argv.port || 3004, 10);
 const app = express();
@@ -33,7 +33,7 @@ app.get('/avatar/:id(\\w+)/:initials.:format(png|jpg)', (req, res, next) => {
   const color = getColor(req);
   const text = initials(req.params.initials);
   const font = 'src/fonts/opensans-semibold.ttf';
-  const format = req.params.format;
+  const { format } = req.params;
   const imageSize = parseInt(req.query.s, 10) || 100;
 
   res.set('Content-Type', `image/${format}`);
@@ -51,7 +51,9 @@ app.get('/avatar/:id(\\w+)/:initials.:format(svg)?', (req, res) => {
 
   res.setHeader('Content-Type', 'image/svg+xml');
   res.setHeader('vary', 'Accept-Encoding');
-  res.render('svg', { color, text, imageSize, fontSize });
+  res.render('svg', {
+    color, text, imageSize, fontSize,
+  });
 });
 
 app.get('/', (req, res) => {
