@@ -29,6 +29,11 @@ app.set('views', 'src/views');
 app.set('view engine', 'ejs');
 app.use(morgan('combined'));
 
+// Avoid 404 favicon
+app.get('/favicon.ico', (req, res) => {
+  res.sendStatus(204);
+});
+
 app.get('/avatar/:id(\\w+)/:initials.:format(png|jpg)', (req, res, next) => {
   const color = getColor(req);
   const text = initials(req.params.initials);
