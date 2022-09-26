@@ -13,16 +13,16 @@
   "dependencies": {
     "ejs": "^3.1.8",
     "express": "^4.18.1",
-    "gm": "^1.23.0",
+    "gm": "^1.25.0",
     "hepburn": "^1.2.0",
     "minimist": "^1.2.6",
     "morgan": "^1.10.0"
   },
   "devDependencies": {
-    "eslint": "^8.16.0",
+    "eslint": "^8.24.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jsx-a11y": "^6.5.1",
-    "jest": "^28.1.0"
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "jest": "^29.0.3"
   }
 }
