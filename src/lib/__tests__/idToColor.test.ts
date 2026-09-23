@@ -1,4 +1,5 @@
-const idToColor = require('../idToColor');
+import { expect, test } from 'bun:test';
+import idToColor from '../idToColor';
 
 test('returns default color with no input', () => {
   expect(idToColor('')).toBe('#2935cc');

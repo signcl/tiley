@@ -1,4 +1,5 @@
-const { validateHex } = require('../colors');
+import { expect, test } from 'bun:test';
+import { validateHex } from '../colors';
 
 test('validateHex', () => {
   expect(validateHex(0)).toBe(false);

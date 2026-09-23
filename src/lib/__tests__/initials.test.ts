@@ -1,4 +1,5 @@
-const initials = require('../initials');
+import { expect, test } from 'bun:test';
+import initials from '../initials';
 
 test('returns initials', () => {
   expect(initials('TM')).toBe('TM');

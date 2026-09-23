@@ -1,4 +1,4 @@
-# Tiley [![CircleCI](https://circleci.com/gh/outline/tiley.svg?style=svg)](https://circleci.com/gh/outline/tiley)
+# Tiley [![Build](https://github.com/signcl/tiley/actions/workflows/build.yml/badge.svg)](https://github.com/signcl/tiley/actions/workflows/build.yml)
 
 An alternative to the default Gravatar's that is quick and easy to use. Tiley creates consistent colored squares with initials that can be used for default avatars, they look like this:
 
@@ -53,7 +53,7 @@ You can run your own copy of tiley easily on Heroku:
 
 ## Development
 
-Tiley depends on imageMagick, on OSX you can install it using Homebrew:
+Tiley runs on [Bun](https://bun.sh) and depends on ImageMagick for PNG and JPG output. On macOS you can install ImageMagick using Homebrew:
 
 ```
 brew install imagemagick
@@ -62,8 +62,16 @@ brew install imagemagick
 On Heroku it's already installed and on linux you should use your package manager of choice.
 
 ```
-yarn install
-yarn start
+bun install
+bun start
 ```
 
 This will begin a process on port 3004 by default, so navigate to "http://localhost:3004" to access the tiley instance.
+
+To lint, type check and run the tests:
+
+```
+bun run lint
+bun run typecheck
+bun test
+```

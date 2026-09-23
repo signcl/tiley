@@ -1,4 +1,5 @@
-const generateFontSize = require('../generateFontSize');
+import { expect, test } from 'bun:test';
+import generateFontSize from '../generateFontSize';
 
 test('returns 55 when size is 100', () => {
   expect(generateFontSize(100)).toBe(55);
